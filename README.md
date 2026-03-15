@@ -240,8 +240,15 @@ console.log(student.marks.science); // 70
   ![alt text](https://github.com/vignesh222s/js-tutorial/blob/main/image/ac4591fb-2250-468e-a27c-d5dcc8fc23b1.jpg?raw=true)
     
    # ***event loop:*** 
-   - JavaScript is a single-threaded programming language. This means that JavaScript can do only one thing at a single point in time.
-   - The JavaScript engine executes a script from the top of the file and works its way down. It creates the execution contexts, pushes, and pops functions onto and off the call stack in the execution phase.
+   - JavaScript is a synchronous single-threaded language, meaning it has one main thread of execution. The Event Loop mechanism allows JavaScript to perform asynchronous operations without blocking the main thread.
+
+The JavaScript engine executes code line by line using a data structure called the Call Stack, which keeps track of function calls. When a function is called, it is added to the stack, and once execution finishes, it is removed from the stack. The Call Stack follows the LIFO (Last In First Out) principle..Async code appears in Call Stack.JavaScript sends the async task to Web APIs
+
+Web APIs are browser-provided features available at runtime that handle asynchronous operations outside the JavaScript engine.
+
+Once the async operation completes, its callback function is placed into the Callback Queue. JavaScript does not directly execute code in  the callbackqueue. It waits until the call stack becomes empty.
+
+The Event Loop continuously monitors the call stack and the callback queue. When the call stack becomes empty, the event loop moves the callback from the queue to the call stack for execution.
    
  ![alt text](https://miro.medium.com/v2/resize:fit:1400/1*0xDGBNrA1WtfSfYY3FJOdw.gif)
 
